@@ -1,89 +1,93 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
-
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.1.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.1.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1100">
+  <title>CODE :: LAST CALL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="title">
+      CODE :: <span>LAST CALL</span>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </header>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  <main>
+    <section class="countdown-section">
+      <div class="countdown-bg"></div>
+      <h2>콘서트 카운트 다운</h2>
+      <div class="countdown-display">
+        <span id="days">00D</span>
+        <br>
+        <span id="timer">00:00:00s</span>
+      </div>
+    </section>
+    <div class="main-row">
+      <!-- 오시는 길 카드 -->
+      <div class="info-panel way-panel">
+        <div class="panel-title-row">오시는 길</div>
+        <div class="panel-map-box">
+          <div id="map" class="way-map"></div>
+        </div>
+        <div class="panel-map-btns">
+          <button class="map-btn naver" onclick="window.open('https://naver.me/GEiIBLUu')">
+            <img src="naver-icon-file.png" alt="네이버 아이콘" class="btn-icon">네이버 맵 길찾기
+          </button>
+          <button class="map-btn kakao" onclick="window.open('https://place.map.kakao.com/263145336')">
+            <img src="1ca66319017800001.png" alt="카카오 아이콘" class="btn-icon">카카오 맵 길찾기
+          </button>
+        </div>
+        <div class="panel-address">가빈아트홀 | 서울 강남구 삼성로 534 B2 가빈아트홀</div>
+      </div>
+      <!-- 콘서트 예매/MD 카드(나란히) -->
+      <div class="right-panels">
+        <div class="info-panel">
+          <div class="panel-title-row">
+  콘서트 예매 <span class="panel-timer" id="reserve-timer">12D 09:04:07</span>
+</div>
+          <div class="panel-action">
+            <div>콘서트 예매 정보</div>
+            <button class="panel-btn" onclick="window.open('concert-info.html', '_blank')">
+  더보기 <span class="arrow">&raquo;</span>
+</button>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+            </button>
+          </div>
+        </div>
+        <div class="info-panel">
+        <div class="panel-title-row">
+  콘서트 MD 오픈 <span class="panel-timer" id="mdshop-timer">23D 09:04:07</span>
+</div>
+          <div class="panel-action">
+            <div>콘서트 MD 바로 가기</div>
+            <button class="panel-btn" onclick="window.open('https://smartstore.naver.com/scon_store')">
+              이동 <span class="arrow">&raquo;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="links-section">
+      <button class="link-btn" onclick="window.open('https://cafe.naver.com/angrybar')">
+        <img src="naver-icon-file.png" alt="N" class="btn-icon">앵그리바
+      </button>
+      <button class="link-btn" onclick="window.open('https://chzzk.naver.com/41d1490bd67b3818d7dc53427a4d6cea')">
+        <img src="치지직_아이콘.png" alt="CHZZK" class="btn-icon">CHZZK-앵보
+      </button>
+      <button class="link-btn" onclick="window.open('https://www.youtube.com/@%EC%95%B5%EB%B3%B4')">
+        <img src="Youtube_logo.png" alt="YouTube" class="btn-icon">앵보 유튜브
+      </button>
+      <button class="link-btn" onclick="window.open('https://www.youtube.com/@Angbomusic')">
+        <img src="Youtube_logo.png" alt="Official" class="btn-icon">앵보 Official
+      </button>
+    </section>
+  </main>
+  <footer>
+    © 2025 LAST CALL
+  </footer>
+  <!-- 카카오 지도 API -->
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=26ff8eacc4f84c6faa7fe6f66fb50caf"></script>
+  <script src="script.js"></script>
+</body>
 </html>
