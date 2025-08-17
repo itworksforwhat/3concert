@@ -1,0 +1,290 @@
+@font-face {
+  font-family: 'BitgoeulLight';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307@latest/BitgoeulLight.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+header {
+  background: transparent;  /* 0.0(완전 투명) ~ 1.0(불투명)까지 조절 */
+  text-align: center;
+  letter-spacing: 1.5px;
+  padding: 0.7rem 0;
+}
+header:before, header:after,
+body:before, body:after,
+html:before, html:after {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+body {
+  background: #3f3f40;
+  color: #222;
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-style: italic;
+  color: #bfbfbf;
+  padding: 0.2em 1.2em;     /* 필요에 따라 padding도 줄일 수 있음 */
+  border-radius: 4px;       /* 둥근모서리도 필요없으면 0으로 */
+  display: inline-block;
+}
+
+.title span {
+  color: #cb2b2b;
+  font-size: 1.8rem;
+}
+
+/* 상단 포스터 배경 */
+.countdown-section {
+  position: relative;
+  background: #222;
+  text-align: center;
+  padding: 6rem 0 5rem 0;
+  min-height: 350px;
+  overflow: hidden;
+}
+.countdown-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: url('image.jpg') center top/60%;  /* center center → center top */
+  opacity: 0.28;
+  filter: blur(1.5px) brightness(0.75);
+  z-index: 1;
+  pointer-events: none;
+}
+.countdown-section > *:not(.countdown-bg) {
+  position: relative;
+  z-index: 2;
+}
+.countdown-section h2 {
+  color: #ffe9b3;
+  font-size: 1.23rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 0.5em;
+}
+.countdown-display {
+  color: #ffe9b3;
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  margin-bottom: 0.6em;
+}
+#days, #timer { font-weight: 400; }
+#days { font-size: 2.4rem; font-style: italic; }
+#timer { font-size: 2.2rem; font-style: italic; }
+
+/* 메인 행 - 두 카드 나란히 */
+.main-row {
+  background: #3f3f40;
+  display: flex;
+  justify-content: center;   /* 중앙 정렬 */
+  align-items: flex-start;
+  gap: 3em;
+  width: 100%;
+  margin-bottom: 2em;
+  flex-wrap: wrap;   
+  margin-top: 3.5em;        
+}
+
+/* 오시는길 카드 폭 제한 */
+.info-panel.way-panel {
+  max-width: 440px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 300px;
+  box-sizing: border-box;
+  padding-top: 2em;    /* ↑ 위쪽 패딩을 늘림 (기존보다 0.5~1em 더 키우면 자연스러움) */
+  padding-bottom: 2em; /* ↓ 아래쪽 패딩도 동일하게 추가 */
+}
+
+.panel-map-box,
+.way-map {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* 카드 공통 */
+.info-panel {
+  background: #fff;
+  border-radius: 15px;
+  margin-bottom: 1.3em;
+  box-shadow: 0 4px 18px rgba(30,30,30,0.09);
+  padding: 1.3em 1.3em 1.6em 1.3em;
+  min-width: 320px;
+}
+.panel-title-row {
+  font-size: 1.09rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.85em;
+  display: flex;
+  align-items: center;
+}
+.panel-map-box {
+  margin-bottom: 1.1em;
+}
+.way-map {
+  width: 100%;
+  height: 158px;
+  border-radius: 11px;
+  max-width: 420px;
+}
+.panel-map-btns {
+  display: flex;
+  gap: 0.7em;
+  margin-bottom: 0.9em;
+}
+.map-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 7px;
+  padding: 0.65em 0.4em;
+  font-size: 1.08rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 0;
+  box-shadow: 0 1.5px 0.2px rgba(0,0,0,0.06);
+  justify-content: center;
+  transition: filter 0.2s;
+  background: #f9f9f9;
+}
+.map-btn.naver {
+  background: #e8fbe7;
+  color: #22cb11;
+}
+.map-btn.kakao {
+  background: #fffbe4;
+  color: #ffe32a;
+}
+.btn-icon {
+  height: 1.4em;
+  width: 1.4em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  border-radius: 3px;
+  object-fit: contain;
+}
+.panel-address {
+  font-size: 1.01rem;
+  color: #232324;
+  margin-top: 0.4em;
+  letter-spacing: 0.01em;
+}
+.info-panel.way-panel,
+.right-panels {
+  margin: 0; /* 양쪽 마진 제거 */
+}
+/* 예매/MD 카드 & 버튼 */
+.right-panels {
+  min-width: 320px;
+  width: 370px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+.info-panel .panel-action {
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ececec;
+  padding-top: 0.7em;
+}
+.panel-btn {
+  background: #232324;
+  color: #fff;
+  border: none;
+  padding: 0.8em 1.5em;
+  border-radius: 6px;
+  font-size: 1.09rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-left: 0.3em;
+  transition: background 0.14s;
+}
+.panel-timer {
+  font-family: 'Playfair Display', serif;       /* 상단 타이머와 같은 폰트 */
+  font-size: 1.18em;                            /* 크기 키우기 (원하면 더 크게) */
+  font-style: italic;                           /* 상단과 통일 */
+  color: #b49d6b;                               /* 상단 타이머의 노란 계통 컬러 */
+  margin-left: 0.7em;                           /* 글자와 시간 칸 띄우기 */
+  letter-spacing: 0.08em;
+  font-weight: 400;
+}
+
+.panel-btn:hover { background: #eead55; color: #232324;}
+.panel-btn .arrow { margin-left: 0.5em; font-size: 1.24em; font-weight: 800;}
+
+/* 하단 링크 */
+.links-section {
+  display: flex;
+  gap: 2.2em;
+  justify-content: center;
+  background: #ececec;
+  padding: 1.1em 1em 2.1em 1em;
+  border-top: 2px solid #cdcdcd;
+  border-bottom: 2px solid #cdcdcd;
+  margin-top: 2.7em;
+}
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background: #f5f2ed;
+  border-radius: 8px;
+  border: none;
+  padding: 1.1em 2.3em;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #222;
+  transition: background 0.16s;
+  box-shadow: 0 2.5px 11px rgba(0,0,0,0.07);
+}
+.link-btn .btn-icon {
+  height: 1.36em;
+  width: 1.36em;
+  margin-right: 0.54em;
+  vertical-align: middle;
+  border-radius: 4px;
+  object-fit: contain;
+}
+.link-btn:hover { background: #e3dfd6;}
+footer {
+  background: #444;
+  color: #bcb6ae;
+  text-align: center;
+  padding: 1.1em;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .main-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.1em;
+    padding: 2em 0 2em 0;
+  }
+  .info-panel, .right-panels { margin-right: 0; }
+  .right-panels {
+    width: 97vw;
+    max-width: 400px;
+    min-width: unset;
+  }
+}

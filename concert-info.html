@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1100">
+  <title>콘서트 예매 정보</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: #212121; }
+    .info-header { text-align: center; margin-top: 2.3rem; }
+    .info-header h1 {
+      color: #ffe9b3;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.5em;
+      font-style: italic;
+      letter-spacing: 0.03em;
+    }
+    .info-caption {
+      color: #bbb;
+      text-align: center;
+      font-size: 1.09rem;
+      margin-bottom: 2.5em;
+    }
+    .info-images {
+      display: flex;
+      flex-direction: column;    /* 세로 정렬 */
+      align-items: center;
+      gap: 2em;
+      margin-bottom: 3em;
+    }
+    .info-images img {
+      width: 420px;
+      max-width: 95vw;
+      border-radius: 14px;
+      box-shadow: 0 8px 28px rgba(30,30,30,0.19);
+      background: #fff;
+      padding: 0.23em;
+      cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.15s;
+      display: block;
+    }
+    .info-images img:hover {
+      box-shadow: 0 12px 42px rgba(100,80,0,0.29);
+      transform: scale(1.025);
+    }
+    /* 모달 라이트박스 */
+    .modal {
+      display: none;
+      position: fixed; z-index: 100;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(24,24,24,0.92);
+      align-items: center; justify-content: center;
+    }
+    .modal.active { display: flex; }
+    .modal-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 16px;
+      box-shadow: 0 0 48px #111;
+      background: #fff;
+      position: relative;
+    }
+    .modal-content img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 16px;
+      background: #fff;
+      display: block;
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 15px;
+      background: #eee; color: #222;
+      border: none; border-radius: 50%;
+      width: 38px; height: 38px;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 10;
+      text-align: center;
+      font-weight: bold;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .modal-close:hover { opacity: 1; background: #ccc; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">
+      CODE :: <span>LAST CALL</span>
+    </div>
+  </header>
+  <div class="info-header">
+    <h1>콘서트 예매 정보</h1>
+    <div class="info-caption">
+      예매 안내/좌석 배치/포스터 등 이미지를 클릭하면 더 크게 볼 수 있습니다.
+    </div>
+  </div>
+  <div class="info-images">
+    <img src="상세_페이지_01_포스터.jpg" alt="포스터">
+    <img src="상세_페이지_02_공연정보.jpg" alt="공연정보">
+    <img src="상세_페이지_03_좌석_배치도.jpg" alt="좌석 배치도">
+    <img src="상세_페이지_04_입장특전.jpg" alt="입장특전">
+    <img src="상세_페이지_05_MD_리스트.jpg" alt="MD 리스트">
+    <img src="상세_페이지_06_공지_사항.jpg" alt="공지사항">
+    <img src="상세_페이지_07_선예매_안내.jpg" alt="선예매 안내">
+    <img src="상세_페이지_08_예매_안내.jpg" alt="예매 안내">
+    <img src="상세_페이지_09_티켓_수령_안내.jpg" alt="티켓 수령 안내">
+    <img src="상세_페이지_10__관람_유의_사항.jpg" alt="관람 유의 사항">
+  </div>
+  <!-- 모달 라이트박스 -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <img src="" alt="크게 보기" id="modalImg">
+    </div>
+  </div>
+  <script>
+    // 이미지 클릭 시 모달 확대
+    const images = document.querySelectorAll('.info-images img');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const modalClose = document.getElementById('modalClose');
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modal.classList.add('active');
+      });
+    });
+    modalClose.onclick = function() { modal.classList.remove('active'); }
+    modal.onclick = function(e) { if(e.target === modal) modal.classList.remove('active'); }
+    window.addEventListener('keydown', e => {
+      if(e.key==='Escape') modal.classList.remove('active');
+    });
+  </script>
+</body>
+</html>
