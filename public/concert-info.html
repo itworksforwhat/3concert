@@ -64,19 +64,33 @@ header .title {
 }
 
     .title {
-    font-family: 'HandwritingBlackDraft', serif;
-    font-size: 1.6rem;
-    font-style: italic;
-    color: #bfbfbf;
-    padding: 0.2em 1.2em;     /* 필요에 따라 padding도 줄일 수 있음 */
-    border-radius: 4px;       /* 둥근모서리도 필요없으면 0으로 */
-    display: inline-block;
-    margin: 0 auto;           /* 가운데 정렬 */}
+font-family: 'HandwritingBlackDraft', serif;
+text-align: center;
+font-size: 1.6rem;
+font-style: italic;
+color: #bfbfbf;
+padding: 0.2em 1.2em;
+border-radius: 4px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.header-img {
+  width: 250px;     /* 원하는 크기 */
+  display: block;
+  align-items: center;
+justify-content: center;
+color: #bfbfbf;
+padding: 0.2em 1.2em;
+border-radius: 4px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+  margin: 0 auto;
+}
 
-  .title span {
-    color: #cb2b2b;
-    font-size: 1.8rem;
-  }
     /* ------ 사이드바 ------ */
     .sidebar {
       position: fixed;
@@ -243,7 +257,9 @@ header .title {
 <body>
 <header>
   <button onclick="history.back()" class="back-btn">← 이전으로</button>
-  <div class="title">CODE :: <span>LAST CALL</span></div>
+  <div class="title">
+      <img src="일러스트3.png" alt="설명 텍스트" class="header-img">
+    </div>
 </header>
 
   <!-- 사이드바 -->
