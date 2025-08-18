@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=1100">
+  <meta property="og:image" content="상세_페이지_01_포스터.jpg" />
   <title>CODE :: LAST CALL</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -52,24 +53,40 @@
       <!-- 콘서트 예매/MD 카드(나란히) -->
       <div class="right-panels">
         <div class="info-panel">
-          <div class="panel-title-row">
-  콘서트 예매 <span class="panel-timer" id="reserve-timer">12D 09:04:07</span>
+  <div class="panel-title-row">
+    <b>콘서트 예매</b>
+  </div>
+  <div class="reserve-dates">
+    <div class="reserve-block">
+      <span class="reserve-badge pre">선예매</span>
+      <span class="reserve-timer" id="pre-reserve-timer">00D 00:00:00</span>
+      <span class="reserve-date">9월 1일(월) 18:00</span>
+    </div>
+    <div class="reserve-block">
+      <span class="reserve-badge normal">일반예매</span>
+      <span class="reserve-timer" id="normal-reserve-timer">00D 00:00:00</span>
+      <span class="reserve-date">9월 2일(화) 18:00</span>
+    </div>
+  </div>
+  <div class="panel-action">
+    <div>콘서트 예매 바로가기</div>
+    <button class="panel-btn" onclick="window.open('https://ticket.yes24.com/New/Notice/NoticeMain.aspx#id=16431')">
+      더보기 <span class="arrow">&raquo;</span>
+    </button>
+  </div>
 </div>
-          <div class="panel-action">
-            <div>콘서트 예매 정보</div>
-            <button class="panel-btn" onclick="window.open('concert-info.html', '_blank')">
-  더보기 <span class="arrow">&raquo;</span>
-</button>
 
-            </button>
-          </div>
         </div>
         <div class="info-panel">
         <div class="panel-title-row">
   콘서트 MD 오픈 <span class="panel-timer" id="mdshop-timer">23D 09:04:07</span>
-</div>
+</div><div class="md-img-box">
+    <img src="scon.png" alt="스콘 로고" class="md-scon-img">
+  </div>
           <div class="panel-action">
+            
             <div>콘서트 MD 바로 가기</div>
+            
             <button class="panel-btn" onclick="window.open('https://smartstore.naver.com/scon_store')">
               이동 <span class="arrow">&raquo;</span>
             </button>

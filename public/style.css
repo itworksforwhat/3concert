@@ -159,8 +159,17 @@ body {
 
 .panel-map-box,
 .way-map {
-  max-width: 100%;
   width: 100%;
+  height: 158px; /* 너무 작거나 height 빠지면 지도가 0px가 됨 */
+  border-radius: 11px;
+  max-width: 420px;
+}
+.md-img-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5em;
+  margin-top: 5em;
+  background-color: #ea42ce;
 }
 
 /* 카드 공통 */
@@ -338,6 +347,51 @@ footer {
 }
 .back-btn:hover {
   background: #ffc0c0;
+}
+.reserve-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 18px 0 6px 0;
+}
+
+.reserve-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding-left: 3px;
+}
+
+.reserve-badge {
+  font-size: 0.98em;
+  padding: 2px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.reserve-badge.pre {
+  background: #fff5cf;
+  color: #b18f00;
+  border: 1px solid #ebd48b;
+}
+.reserve-badge.normal {
+  background: #ebebeb;
+  color: #232323;
+  border: 1px solid #ccc;
+}
+.reserve-timer {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.09em;
+  font-style: italic;
+  color: #b49d6b;
+  min-width: 128px;
+  margin-top: 2px;
+}
+.reserve-date {
+  font-size: 0.96em;
+  color: #888;
+  margin-top: 1px;
 }
 
 

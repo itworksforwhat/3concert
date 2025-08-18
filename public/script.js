@@ -17,21 +17,47 @@ function updateConcertCountdown() {
   }
 }
 // 예매 카운트다운 (2025-08-30 12:00)
-const reserveTargetDate = new Date("2025-08-30T12:00:00+09:00");
-function updateReserveCountdown() {
+// 선예매(9월1일 18:00) / 일반예매(9월2일 18:00)
+function updatePreReserveCountdown() {
+  const preDate = new Date("2025-09-01T18:00:00+09:00");
   const now = new Date();
-  const diff = reserveTargetDate - now;
-  if(diff > 0) {
-    const days = Math.floor(diff / (1000*60*60*24));
-    const hours = Math.floor((diff/(1000*60*60)) % 24);
-    const minutes = Math.floor((diff/(1000*60)) % 60);
-    const seconds = Math.floor((diff/1000) % 60);
-    document.getElementById('reserve-timer').textContent =
-      `  ${(days < 10 ? '0' : '') + days}D ${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-  } else {
-    document.getElementById('reserve-timer').textContent = '00D 00:00:00';
+  const diff = preDate - now;
+  const el = document.getElementById('pre-reserve-timer');
+  if (el) {
+    if (diff > 0) {
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff/(1000*60*60)) % 24);
+      const minutes = Math.floor((diff/(1000*60)) % 60);
+      const seconds = Math.floor((diff/1000) % 60);
+      el.textContent = `${days}D ${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+    } else {
+      el.textContent = '00D 00:00:00';
+    }
   }
 }
+function updateNormalReserveCountdown() {
+  const normalDate = new Date("2025-09-02T18:00:00+09:00");
+  const now = new Date();
+  const diff = normalDate - now;
+  const el = document.getElementById('normal-reserve-timer');
+  if (el) {
+    if (diff > 0) {
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff/(1000*60*60)) % 24);
+      const minutes = Math.floor((diff/(1000*60)) % 60);
+      const seconds = Math.floor((diff/1000) % 60);
+      el.textContent = `${days}D ${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+    } else {
+      el.textContent = '00D 00:00:00';
+    }
+  }
+}
+// 실행
+setInterval(updatePreReserveCountdown, 1000);
+setInterval(updateNormalReserveCountdown, 1000);
+updatePreReserveCountdown();
+updateNormalReserveCountdown();
+
 // MD 카운트다운 (2025-09-10 12:00)
 const mdshopTargetDate = new Date("2025-09-10T12:00:00+09:00");
 function updateMDShopCountdown() {
@@ -48,9 +74,11 @@ function updateMDShopCountdown() {
     document.getElementById('mdshop-timer').textContent = '00D 00:00:00';
   }
 }
-setInterval(updateConcertCountdown, 1000); updateConcertCountdown();
-setInterval(updateReserveCountdown, 1000); updateReserveCountdown();
-setInterval(updateMDShopCountdown, 1000); updateMDShopCountdown();
+// 이렇게만 두세요
+updatePreReserveCountdown();
+updateNormalReserveCountdown();
+updateMDShopCountdown();
+updateConcertCountdown();
 
 // 카카오 지도 (정방향 마커)
 window.onload = function() {
@@ -73,4 +101,12 @@ window.onload = function() {
     image: markerImage
   });
   marker.setMap(map);
+}
+
+function goBack() {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    window.location.href = 'https://abconcert-55576.web.app/';  // 또는 이동을 원하는 기본 주소
+  }
 }
