@@ -21,8 +21,8 @@ html:before, html:after {
   box-shadow: none !important;
 }
 body {
-  background: #3f3f40;
-  color: #222;
+  background: #212121;
+  color: #212121;
   margin: 0;
   font-family: 'Noto Sans KR', sans-serif;
 }
@@ -67,8 +67,8 @@ justify-content: center;
 
 .reserve-nav a {
   /* 기존대로 왼쪽에 나열 */
-  margin-right: 32px; /* a 태그 간격, 원하면 조절 */
-  color: #fff; /* 흰색 */
+/* a 태그 간격, 원하면 조절 */
+  color: #ffe9b3; /* 흰색 */
   font-weight: bold;
   text-decoration: none;
 }
@@ -76,7 +76,7 @@ justify-content: center;
 .reserve-nav .title {
   margin: 0 auto;        /* 중앙 정렬 포인트! */
   font-style: italic;
-  color: #ffffff;
+  color: #ffe9b3;
   font-size: 2rem;       /* 크기 원하면 조정 */
   font-family: serif;    /* 원래 사용했던 폰트 */
 }
@@ -89,7 +89,7 @@ justify-content: center;
 
 .reserve-nav {
   display: flex;
-  gap: 24px;          /* 간격 주기 */
+  gap: 10px;          /* 간격 주기 */
   flex: 1;            /* 왼쪽 영역을 최대로 확장 */
 }
 
@@ -106,7 +106,7 @@ justify-content: center;
 /* 상단 포스터 배경 */
 .countdown-section {
   position: relative;
-  background: #222;
+  background: #212121;
   text-align: center;
   padding: 6rem 0 5rem 0;
   min-height: 350px;
@@ -149,7 +149,7 @@ justify-content: center;
 
 /* 메인 행 - 두 카드 나란히 */
 .main-row {
-  background: #3f3f40;
+  background: #212121;
   display: flex;
   justify-content: center;   /* 중앙 정렬 */
   align-items: flex-start;
