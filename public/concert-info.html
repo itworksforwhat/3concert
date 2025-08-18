@@ -2,33 +2,31 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1200, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:image" content="상세_페이지_01_포스터.jpg" />
   <title>콘서트 예매 정보</title>
-  <style>
-    body {
-      background: #212121;
-      color: #ffffff;
-      margin: 0;
-      overflow-x: hidden;
-      font-family: 'Playfair Display', serif;
-    }
-    /* ------ HEADER ------ */
-    header {
+  <style>body {
+  background: #212121;
+  color: #ffffff;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Playfair Display', serif;
+}
+/* ------ HEADER ------ */
+header {
   width: 100%;
   background: none;
   position: relative;
-  width: 100%;
   margin: 0;
-  position: relative;
   left: 0;
   transform: none;
   display: block;
 }
-
 .back-btn {
   position: absolute;
   top: 18px;
-  left: 190px;   /* 사이드바 넓이대로 조정 */
+  left: 190px; /* 사이드바 넓이대로 조정 */
   background: #2a2921;
   color: #ffe9b3;
   border: none;
@@ -37,217 +35,235 @@
   padding: 0.5em 1.3em;
   cursor: pointer;
   font-family: 'Playfair Display', serif;
-      z-index: 2;
+  z-index: 2;
 }
 .back-btn:hover {
   background: #44422a;
 }
-
-@media (max-width: 900px){
-  .back-btn { left: 98px; }
-  header .title { font-size: 1.1rem; }
-}
-@media (max-width:600px){
-  .back-btn { left: 60px; }
-}
-
-    .title {
-font-family: 'HandwritingBlackDraft', serif;
-text-align: center;
-font-size: 1.6rem;
-font-style: italic;
-color: #bfbfbf;
-padding: 0.2em 1.2em;
-border-radius: 4px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+.title {
+  font-family: 'HandwritingBlackDraft', serif;
+  text-align: center;
+  font-size: 1.6rem;
+  font-style: italic;
+  color: #bfbfbf;
+  padding: 0.2em 1.2em;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .header-img {
   width: 300px;
   height: auto;
-  display: block;
+  display: flex;
   align-items: center;
-justify-content: center;
-color: #bfbfbf;
-padding: 0.2em 1.2em;
-border-radius: 4px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+  justify-content: center;
+  color: #bfbfbf;
+  padding: 0.2em 1.2em;
+  border-radius: 4px;
   margin: 0 auto;
 }
-    /* ----- 사이드바 ----- */
-    .sidebar {
-      width: 190px;
-      min-width: 120px;
-      background: #111;
-      padding-top: 2rem;
-      height: 100vh;
-      position: fixed;
-      top: 0; left: 0;
-      z-index: 99;
-      overflow-y: auto;
-      transition: all 0.3s;
-    }
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .sidebar li {
-      /* 👇👇 클릭 영역 넓게! */
-      padding: 1.1rem 1.3rem;
-      line-height: 1.3;
-      color: #ffe9b3;
-      cursor: pointer;
-      transition: background 0.2s;
-      font-size: 1rem;
-      font-family: 'Playfair Display', serif;
-      border-left: 3px solid transparent;
-      box-sizing: border-box;
-      width: 100%;
-      display: block;
-    }
-    .sidebar li.active {
-      background: #333;
-      border-left: 3px solid #ffd264;
-      color: #ffd264;
-      font-weight: bold;
-    }
-    .sidebar li:hover {
-      background: #333;
-    }
-    .main-content {
-      margin-left: 190px;
-      padding: 1rem;
-    }
-    /* ------ info-header ------ */
-    .info-header {
-      text-align: center;
-      margin-top: 1rem;
-    }
-    .info-caption {
-      color: #bbb;
-      font-size: 1rem;
-      margin-bottom: 1.5em;
-    }
-    /* ---------- 슬라이더 ---------- */
-    .slider {
-      position: relative;
-      width: 80vw;
-      max-width: 900px;
-      height: 56vw;
-      max-height: 800px;
-      margin: 0 auto;
-      background: #191919;
-      overflow: hidden;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .slides {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.4s cubic-bezier(.37,.31,.54,1.25);
-    }
-    .slides img {
-      flex-shrink: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 10px;
-      background: #222;
-      cursor: pointer;
-    }
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      font-size: 2rem;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 50%;
-      z-index: 2;
-    }
-    .prev { left: 10px; }
-    .next { right: 10px; }
-    /* ------ 모달 ------ */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.92);
-      align-items: center;
-      justify-content: center;
-    }
-    .modal.active { display: flex; }
-    .modal img {
-      width: 90vw; height: 90vh;
-      max-width: 1200px; max-height: 90vh;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 0 48px #111;
-      background: #fff;
-      display: block;
-      margin: 0 auto;
-      user-select: none;
-    }
-    .modal-close {
-      position: absolute;
-      top: 22px; right: 35px;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 3rem;
-      cursor: pointer;
-      z-index: 20;
-      opacity: 0.8;
-      transition: opacity 0.2s;
-    }
-    .modal-close:hover { opacity: 1; }
-    /* 반응형 */
-    @media (max-width: 900px){
-      .slider, .slides img {
-        width: 99vw;
-        max-width: 99vw;
-        height: 58vw;
-        max-height: 65vw;
-      }
-      .header-row, .sidebar, .main-content { margin-left: 98px !important; }
-      .sidebar { width:98px;}
-      .main-content{ margin-left:105px;}
-    }
-    @media (max-width:600px){
-      .slider, .slides img {
-        height: 55vw;
-        max-height: 63vw;
-      }
-      .header-row, .sidebar, .main-content { margin-left: 60px !important; }
-      .sidebar { width:60px;}
-      .main-content{ margin-left:65px;}
-      .header-row { gap: 0.7rem; }
-      .back-btn { font-size: 0.87rem; padding: 0.45em 0.7em;}
-      header .title { font-size: 1.15rem;}
-    }
+/* ----- 사이드바 ----- */
+.sidebar {
+  width: 190px;
+  min-width: 120px;
+  background: #111;
+  padding-top: 2rem;
+  height: 100vh;
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 99;
+  overflow-y: auto;
+  transition: all 0.3s;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  padding: 1.1rem 1.3rem;
+  line-height: 1.3;
+  color: #ffe9b3;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 1rem;
+  font-family: 'Playfair Display', serif;
+  border-left: 3px solid transparent;
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+}
+.sidebar li.active {
+  background: #333;
+  border-left: 3px solid #ffd264;
+  color: #ffd264;
+  font-weight: bold;
+}
+.sidebar li:hover {
+  background: #333;
+}
+.main-content {
+  margin-left: 190px;
+  padding: 1rem;
+}
+/* ------ info-header ------ */
+.info-header {
+  text-align: center;
+  margin-top: 1rem;
+}
+.info-caption {
+  color: #bbb;
+  font-size: 1rem;
+  margin-bottom: 1.5em;
+}
+/* ---------- 슬라이더 ---------- */
+.slider {
+  position: relative;
+  width: 80vw;
+  max-width: 900px;
+  height: 56vw;
+  max-height: 800px;
+  margin: 0 auto;
+  background: #191919;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(.37,.31,.54,1.25);
+}
+.slides img {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #222;
+  cursor: pointer;
+}
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 2rem;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+/* ------ 모달 ------ */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.92);
+  align-items: center;
+  justify-content: center;
+}
+.modal.active { display: flex; }
+.modal img {
+  width: 90vw; height: 90vh;
+  max-width: 1200px; max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 0 48px #111;
+  background: #fff;
+  display: block;
+  margin: 0 auto;
+  user-select: none;
+}
+.modal-close {
+  position: absolute;
+  top: 22px; right: 35px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 20;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.modal-close:hover { opacity: 1; }
+
+/* ---- PC (기본 메뉴) ---- */
+.navbar { display: block; }
+.overlay-menu { display: none; }
+
+/* ---- 모바일 반응형 ---- */
+@media (max-width: 900px){
+  .slider, .slides img {
+    width: 99vw;
+    max-width: 99vw;
+    height: 58vw;
+    max-height: 65vw;
+  }
+  .header-row, .sidebar, .main-content { margin-left: 98px !important; }
+  .sidebar { width:98px;}
+  .main-content{ margin-left:105px;}
+}
+@media (max-width:600px){
+  /* 오버레이 메뉴만 보이기 */
+  .navbar { display: none; }
+  .overlay-menu {
+    display: block;
+    position: fixed;
+    left: 0; top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    /* flex/column 등 추가 가능 */
+  }
+  /* 기존 사이드바 숨김 */
+  .sidebar {
+    display: none;
+  }
+  /* 메뉴 항목 크기/여백 축소 */
+  .overlay-menu ul,
+  .overlay-menu li {
+    font-size: 15px;
+    padding: 8px 10px;
+  }
+  .slider, .slides img {
+    height: 55vw;
+    max-height: 63vw;
+  }
+  .header-row, .main-content { margin-left: 0 !important; }
+  .header-row { gap: 0.7rem; }
+  .back-btn { font-size: 0.87rem; padding: 0.45em 0.7em;}
+  header .title { font-size: 1.15rem;}
+}
+
   </style>
 </head>
 <body>
 <header>
+  
   <button onclick="history.back()" class="back-btn">← 이전으로</button>
   <div class="title">
       <img src="일러스트3.png" alt="설명 텍스트" class="header-img">
     </div>
 </header>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
   <!-- 사이드바 -->
   <div class="sidebar">
     <ul id="toc">
