@@ -1,6 +1,7 @@
+
 @font-face {
-  font-family: 'BitgoeulLight';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307@latest/BitgoeulLight.woff2') format('woff2');
+  font-family: 'HandwritingBlackDraft';
+  src: url('./font/handwriting_black_draft/handwriting-black-draft_DEMO.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -11,6 +12,7 @@ header {
   letter-spacing: 1.5px;
   padding: 0.7rem 0;
 }
+
 header:before, header:after,
 body:before, body:after,
 html:before, html:after {
@@ -26,7 +28,8 @@ body {
 }
 
 .title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'HandwritingBlackDraft', serif;
+  text-align: center;
   font-size: 1.6rem;
   font-style: italic;
   color: #bfbfbf;
@@ -38,6 +41,51 @@ body {
 .title span {
   color: #cb2b2b;
   font-size: 1.8rem;
+}
+.reserve-nav {
+  display: flex;
+  align-items: center;
+  padding: 0 48px; /* 좌우 여백 */
+  box-sizing: border-box;
+}
+
+
+.reserve-nav a {
+  /* 기존대로 왼쪽에 나열 */
+  margin-right: 32px; /* a 태그 간격, 원하면 조절 */
+  color: #fff; /* 흰색 */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.reserve-nav .title {
+  margin: 0 auto;        /* 중앙 정렬 포인트! */
+  font-style: italic;
+  color: #ffffff;
+  font-size: 2rem;       /* 크기 원하면 조정 */
+  font-family: serif;    /* 원래 사용했던 폰트 */
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.reserve-nav {
+  display: flex;
+  gap: 24px;          /* 간격 주기 */
+  flex: 1;            /* 왼쪽 영역을 최대로 확장 */
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  font-size: 2rem;
+  font-style: italic;
+  font-family: serif;
 }
 
 /* 상단 포스터 배경 */
@@ -82,6 +130,7 @@ body {
 #days, #timer { font-weight: 400; }
 #days { font-size: 2.4rem; font-style: italic; }
 #timer { font-size: 2.2rem; font-style: italic; }
+
 
 /* 메인 행 - 두 카드 나란히 */
 .main-row {
@@ -272,6 +321,25 @@ footer {
   font-size: 0.92rem;
   letter-spacing: 0.08em;
 }
+.back-btn {
+  position: absolute;
+  top: 28px;
+  left: 34px;
+  background: #ffffff;
+  border: none;
+  color: #504029;
+  font-size: 1.07rem;
+  padding: 0.58em 1.2em;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(30,30,30,0.07);
+  transition: background 0.15s;
+}
+.back-btn:hover {
+  background: #ffc0c0;
+}
+
 
 /* 반응형 */
 @media (max-width: 900px) {
