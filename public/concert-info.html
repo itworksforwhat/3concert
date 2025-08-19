@@ -460,13 +460,7 @@ modalClose.addEventListener('click', () => {
 // 페이지 로드 시 적용, 창 크기 바뀔 때도 재적용
 setupModalSwipe();
 window.addEventListener('resize', setupModalSwipe);
-// ---------- end 모달 스와이프 추가 ----------
-document.querySelectorAll('.sidebar li').forEach(item => {
-  item.addEventListener('click', () => {
-    document.querySelectorAll('.sidebar li').forEach(i => i.classList.remove('active'));
-    item.classList.add('active');
-  });
-});
+
   </script>
 </body>
 </html>
