@@ -443,6 +443,19 @@ function setupModalSwipe() {
     }
   });
 }
+// 초기화: 모달 이미지 클릭 시 스와이프 기능 활성화
+images.forEach((img, i) => {
+  img.addEventListener('click', () => {
+    showModalImage(i);
+    modal.classList.add('active');
+    setupModalSwipe(); // 모달 열 때마다 스와이프 설정
+  });
+}); 
+// 모달 닫을 때 스와이프 기능 비활성화
+modalClose.addEventListener('click', () => {
+  modal.classList.remove('active');
+  modalImg.src = ''; // 이미지 초기화
+}); 
 
 // 페이지 로드 시 적용, 창 크기 바뀔 때도 재적용
 setupModalSwipe();
