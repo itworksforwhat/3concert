@@ -1,5 +1,8 @@
 // ---- 타이머 관련 함수 정의 ----
 const concertTargetDate = new Date("2025-10-11T18:00:00+09:00");
+const guestbookOpenDate = new Date(concertTargetDate.getTime() - 10 * 24 * 60 * 60 * 1000);
+
+
 function updateConcertCountdown() {
   const now = new Date();
   const diff = concertTargetDate - now;
@@ -66,6 +69,39 @@ function updateMDShopCountdown() {
   }
 }
 
+// ---- 방명록 버튼 업데이트 ----
+function updateGuestbookButtons() {
+    const now = new Date();
+    const btn = document.getElementById('guestbook-btn');
+    const btnsActive = document.getElementById('guestbook-active-btns');
+    const guestbookOpenDate = new Date(concertTargetDate.getTime() - 10 * 24 * 60 * 60 * 1000);
+    if(now >= guestbookOpenDate) {
+        btn.style.display = "none";
+        btnsActive.style.display = "flex";
+    } else {
+        btn.style.display = "inline-block";
+        btnsActive.style.display = "none";
+        btn.classList.add('guestbook-btn-disabled'); // 비주얼만 비활성
+    }
+}
+
+// ??? 버튼 클릭시 팝업 (disabled 아님!)
+document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('guestbook-btn');
+    btn.addEventListener('click', function(e){
+        // 아직 방명록 비활성일 때만 작동
+        const now = new Date();
+        const guestbookOpenDate = new Date(concertTargetDate.getTime() - 10 * 24 * 60 * 60 * 1000);
+        if(now < guestbookOpenDate) {
+            const diff = Math.ceil((guestbookOpenDate - now)/(1000*60*60*24));
+            alert(`${diff}일 후를 기대해주세요!`);
+            e.preventDefault();
+            return false;
+        }
+    });
+});
+
+
 // ---- 페이지가 완전히 준비된 후 모든 타이머+지도 실행 ----
 
   // 타이머 실시간 실행
@@ -74,12 +110,14 @@ setInterval(updateConcertCountdown, 1000);
 setInterval(updatePreReserveCountdown, 1000);
 setInterval(updateNormalReserveCountdown, 1000);
 setInterval(updateMDShopCountdown, 1000);
+setInterval(updateGuestbookButtons, 1000);
 
 // ---- [최초 1회 실행] ----
 updateConcertCountdown();
 updatePreReserveCountdown();
 updateNormalReserveCountdown();
 updateMDShopCountdown();
+updateGuestbookButtons();
 
 window.onload = function(){
   // 지도 초기화

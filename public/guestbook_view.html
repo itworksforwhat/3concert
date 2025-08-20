@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>방명록 보기</title>
+    <link rel="stylesheet" href="guestbook.css">
+    <script defer src="guestbook.js"></script>
+</head>
+<body>
+    <header>
+        <div class="guestbook-header">
+            <h1>콘서트 방명록</h1>
+            <a href="index.html" class="home-link">메인으로</a>
+            <a href="guestbook_write.html" class="write-link">방명록 쓰기</a>
+        </div>
+    </header>
+    <main>
+        <div id="guestbook-entries" class="guestbook-entries"></div>
+    </main>
+    <!-- 관리자에게 안내멘트(개발자 콘솔용) 노출 -->
+    <script>
+        // 관리자용 안내 노출 (일반인은 무시)
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('관리자 삭제 명령: deleteEntry(인덱스번호);');
+            console.log('deleteEntry(0) : 가장 오래된 메시지 삭제, deleteEntry(entries.length-1) : 최신 메시지 삭제');
+        });
+    </script>
+</body>
+</html>

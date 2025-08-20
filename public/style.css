@@ -424,3 +424,40 @@ footer {
     min-width: unset;
   }
 }
+.guestbook-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 26px;
+    margin-bottom: 10px;
+    gap: 18px;
+    flex-direction: row;
+}
+
+.guestbook-btn {
+    background: #000000;
+    border: none;
+    color: #b49d6b;
+    padding: 0.85em 2.2em;
+    border-radius: 9px;
+    font-size: 1.17rem;
+    font-weight: 600;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0 0.7em;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: background 0.14s, color 0.13s;
+}
+.guestbook-btn-disabled {
+    background: #eaeaea !important;
+    color: #b0b0b0 !important;
+}
+.guestbook-btn:hover {
+    background: #333333;
+    color: #ffffff;
+}
+#guestbook-active-btns {
+    gap: 14px;
+    display: flex;
+    flex-direction: row;
+}

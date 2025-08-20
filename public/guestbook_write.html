@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>방명록 쓰기</title>
+    <link rel="stylesheet" href="guestbook.css">
+    <script defer src="guestbook.js"></script>
+</head>
+<body>
+    <header>
+        <div class="guestbook-header">
+            <h1>방명록 남기기</h1>
+            <a href="index.html" class="home-link">메인으로</a>
+            <a href="guestbook_view.html" class="view-link">방명록 보기</a>
+        </div>
+    </header>
+    <main>
+        <form id="guestbook-form" class="guestbook-form">
+            <input type="text" id="guestbook-name" maxlength="16" placeholder="닉네임 (필수)" required>
+            <textarea id="guestbook-message" maxlength="240" placeholder="메시지를 남겨주세요 (최대 240자)" required></textarea>
+            <button type="submit" class="submit-btn">등록하기</button>
+        </form>
+    </main>
+</body>
+</html>
