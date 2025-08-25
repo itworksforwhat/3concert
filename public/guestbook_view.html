@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>방명록 보기</title>
-    <link rel="stylesheet" href="guestbook.css">
-    <script defer src="guestbook.js"></script>
+  <meta charset="utf-8">
+  <title>앵보 콘서트 롤링페이퍼 보기</title>
+  <link rel="stylesheet" href="guestbook.css">
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 <body>
-    <header>
-        <div class="guestbook-header">
-            <h1>콘서트 방명록</h1>
-            <a href="index.html" class="home-link">메인으로</a>
-            <a href="guestbook_write.html" class="write-link">방명록 쓰기</a>
-        </div>
-    </header>
-    <main>
-        <div id="guestbook-entries" class="guestbook-entries"></div>
-    </main>
-    <!-- 관리자에게 안내멘트(개발자 콘솔용) 노출 -->
-    <script>
-        // 관리자용 안내 노출 (일반인은 무시)
-        window.addEventListener('DOMContentLoaded', function() {
-            console.log('관리자 삭제 명령: deleteEntry(인덱스번호);');
-            console.log('deleteEntry(0) : 가장 오래된 메시지 삭제, deleteEntry(entries.length-1) : 최신 메시지 삭제');
-        });
-    </script>
+  <div class="guestbook-header">
+    <h1>앵보 3주년 단독 콘서트<br>팬 롤링페이퍼✨</h1>
+    <p style="text-align:center; color:#ffe9b3; font-size:1.08rem;">
+      두목에게 남기고 싶은 여러분의 응원·축하 메시지를 자유롭게 적어 주세요!
+    </p>
+    <a href="guestbook_write.html">[메시지 남기기]</a>
+  </div>
+  <div class="guestbook-entries" id="guestbook-entries">
+    <!-- 롤링페이퍼 메시지 표시 영역 -->
+  </div>
+  <script src="guestbook.js"></script>
+  <script>
+    window.onload = renderGuestbookEntries;
+  </script>
 </body>
 </html>

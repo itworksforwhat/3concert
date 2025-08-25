@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>방명록 쓰기</title>
-    <link rel="stylesheet" href="guestbook.css">
-    <script defer src="guestbook.js"></script>
+  <meta charset="utf-8">
+  <title>앵보 콘서트 롤링페이퍼 쓰기</title>
+  <link rel="stylesheet" href="guestbook.css">
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 <body>
-    <header>
-        <div class="guestbook-header">
-            <h1>방명록 남기기</h1>
-            <a href="index.html" class="home-link">메인으로</a>
-            <a href="guestbook_view.html" class="view-link">방명록 보기</a>
-        </div>
-    </header>
-    <main>
-        <form id="guestbook-form" class="guestbook-form">
-            <input type="text" id="guestbook-name" maxlength="16" placeholder="닉네임 (필수)" required>
-            <textarea id="guestbook-message" maxlength="240" placeholder="메시지를 남겨주세요 (최대 240자)" required></textarea>
-            <button type="submit" class="submit-btn">등록하기</button>
-        </form>
-    </main>
+  <div class="guestbook-header">
+    <h1>앵보 3주년 단독 콘서트<br>팬 롤링페이퍼✨</h1>
+    <p style="text-align:center; color:#ffe9b3; font-size:1.08rem;">
+      2025년 10월, 앵보의 데뷔 3주년 단독 콘서트를 기다리며<br>
+      팬들이 마음을 남기는 롤링페이퍼입니다.
+    </p>
+    <p style="text-align:center; color:#ffe9b3; font-size:0.80rem;">
+        콘서트날을 기다리며 두목에게 남기고 싶은 여러분의 응원·축하·기대의 메시지를 자유롭게 적어 주세요!<br>
+        모두 모아 이후 두목에게 전달할 예정입니다.📨
+    </p>
+    <a href="guestbook_view.html">[롤링페이퍼 보기]</a>
+  </div>
+  <form class="guestbook-form" id="guestbook-form" onsubmit="submitGuestbook(event)">
+    <input id="guestbook-name" type="text" placeholder="닉네임" autocomplete="off" required>
+    <textarea id="guestbook-message" placeholder="응원 메시지 또는 추억을 남겨 주세요" required></textarea>
+    <button type="submit" class="submit-btn">등록하기</button>
+  </form>
+  <script src="guestbook.js"></script>
 </body>
 </html>
